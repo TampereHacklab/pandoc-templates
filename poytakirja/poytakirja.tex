@@ -17,7 +17,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\textbf{Tampere Hacklab ry}}
-% The global header uses "Type --- Name" (e.g., Pöytäkirja --- Hallituksen kokous)
+% The global header uses "Tyyppi --- Nimi" (e.g., Pöytäkirja --- Hallituksen kokous)
 \fancyhead[C]{$if(tyyppi)$$tyyppi$$else$Pöytäkirja$endif$ --- $if(nimi)$$nimi$$else$Kokous$endif$}
 \fancyhead[R]{$päivä$}
 % Footer now displays x/y format
@@ -47,12 +47,12 @@
 Ahlmanintie 56, 33800 Tampere \\
 Y-tunnus: 2419748-5
 
-\vspace{1cm}
+\vspace{0.5cm}
 
 \begin{center}
     {\LARGE \textbf{$if(nimi)$$nimi$$else$Kokous$endif$}}
 \end{center}
-\vspace{1cm}
+\vspace{0.5cm}
 
 % --- MEETING DETAILS ---
 \noindent
@@ -65,7 +65,7 @@ $if(poissa)$
 $endif$
 \end{tabular}
 
-\vspace{1cm}
+\vspace{0.5cm}
 
 $if(asialista)$
 \noindent\textbf{Asialista:}
@@ -74,25 +74,28 @@ $for(asialista)$
   \item $asialista$
 $endfor$
 \end{enumerate}
-\vspace{1cm}
+\vspace{0.5cm}
 $endif$
 
 \hrule
-\vspace{1cm}
+\vspace{0.5cm}
 
 % --- MAIN CONTENT (Markdown text is injected here) ---
 $body$
 
 % --- END MATTER ---
 $if(lopetus)$
-\vspace{1.5cm}
+\vspace{1cm}
+\begin{samepage} % Ensures the heading and time stay on the same page
 \noindent \textbf{Kokouksen päättäminen:} \\
 Kokous päätettiin klo $lopetus$.
+\end{samepage}
 $endif$
 
 % --- SIGNATURES ---
 $if(tarkastajat)$
-\vspace{1.5cm}
+\vspace{1cm}
+\begin{samepage} % Ensures the text and signatures stay on the same page
 \noindent\textbf{Pöytäkirjan vakuudeksi:}
 
 \vspace{0.5cm}
@@ -107,6 +110,7 @@ Pöytäkirjantarkastaja
 \end{minipage}
 \hspace{1cm}
 $endfor$
+\end{samepage}
 $endif$
 
 \end{document}
