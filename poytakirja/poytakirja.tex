@@ -18,8 +18,8 @@
 \fancyhf{}
 \fancyhead[L]{\textbf{Tampere Hacklab ry}}
 % The global header uses "Type --- Name" (e.g., Pöytäkirja --- Hallituksen kokous)
-\fancyhead[C]{$if(type)$$type$$else$Pöytäkirja$endif$ --- $if(name)$$name$$else$Kokous$endif$}
-\fancyhead[R]{$date$}
+\fancyhead[C]{$if(tyyppi)$$tyyppi$$else$Pöytäkirja$endif$ --- $if(nimi)$$nimi$$else$Kokous$endif$}
+\fancyhead[R]{$päivä$}
 % Footer now displays x/y format
 \fancyfoot[C]{Sivu \thepage/\pageref{LastPage}}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -50,28 +50,28 @@ Y-tunnus: 2419748-5
 \vspace{1cm}
 
 \begin{center}
-    {\LARGE \textbf{$if(name)$$name$$else$Kokous$endif$}}
+    {\LARGE \textbf{$if(nimi)$$nimi$$else$Kokous$endif$}}
 \end{center}
 \vspace{1cm}
 
 % --- MEETING DETAILS ---
 \noindent
 \begin{tabular}{@{}p{3cm} p{12cm}}
-\textbf{Aika:} & $date$ klo $start_time$ \\
-\textbf{Paikka:} & $place$ \\
-\textbf{Läsnä:} & $for(attendees)$$attendees$$sep$, $endfor$ \\
-$if(absent)$
-\textbf{Poissa:} & $for(absent)$$absent$$sep$, $endfor$ \\
+\textbf{Aika:} & $päivä$ klo $aloitus$ \\
+\textbf{Paikka:} & $paikka$ \\
+\textbf{Läsnä:} & $for(paikalla)$$paikalla$$sep$, $endfor$ \\
+$if(poissa)$
+\textbf{Poissa:} & $for(poissa)$$poissa$$sep$, $endfor$ \\
 $endif$
 \end{tabular}
 
 \vspace{1cm}
 
-$if(agenda)$
+$if(asialista)$
 \noindent\textbf{Asialista:}
 \begin{enumerate}
-$for(agenda)$
-  \item $agenda$
+$for(asialista)$
+  \item $asialista$
 $endfor$
 \end{enumerate}
 \vspace{1cm}
@@ -84,27 +84,25 @@ $endif$
 $body$
 
 % --- END MATTER ---
-$if(end_time)$
+$if(lopetus)$
 \vspace{1.5cm}
 \noindent \textbf{Kokouksen päättäminen:} \\
-$if(end_note)$$end_note$$endif$
-
-Kokous päätettiin klo $end_time$.
+Kokous päätettiin klo $lopetus$.
 $endif$
 
 % --- SIGNATURES ---
-$if(proofreaders)$
+$if(tarkastajat)$
 \vspace{1.5cm}
 \noindent\textbf{Pöytäkirjan vakuudeksi:}
 
 \vspace{0.5cm}
 \noindent
-$for(proofreaders)$
+$for(tarkastajat)$
 \begin{minipage}[t]{7cm}
 \vspace{1.5cm}
 \hrule
 \vspace{0.2cm}
-$proofreaders$\\
+$tarkastajat$\\
 Pöytäkirjantarkastaja
 \end{minipage}
 \hspace{1cm}

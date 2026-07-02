@@ -1,25 +1,24 @@
 ---
-name: "Hallituksen kokous"
-type: "Pöytäkirja"
-date: "2.7.2026"
-start_time: "18:00"
-place: "Hacklabin tilat, Ahlmanintie 56"
-attendees:
+nimi: "Hallituksen kokous"
+tyyppi: "Pöytäkirja"
+päivä: "2.7.2026"
+aloitus: "18:00"
+paikka: "Hacklabin tilat, Ahlmanintie 56"
+paikalla:
   - Matti Meikäläinen (puheenjohtaja)
   - Maija Meikäläinen (sihteeri)
   - Kalle Koodari
-absent:
+poissa:
   - Liisa Laiskiainen
-agenda:
+asialista:
   - Kokouksen avaus
   - Laillisuuden ja päätösvaltaisuuden toteaminen
   - Työjärjestyksen hyväksyminen
   - Uudet laitehankinnat
   - Muut asiat
   - Kokouksen päättäminen
-end_time: "19:15"
-end_note: "Todettiin asialista käsitellyksi."
-proofreaders:
+lopetus: "19:15"
+tarkastajat:
   - Matti Meikäläinen
   - Kalle Koodari
 ---
