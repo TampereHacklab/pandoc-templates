@@ -1,0 +1,114 @@
+\documentclass[11pt, a4paper]{article}
+
+% Language and font encodings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[finnish]{babel}
+\usepackage{lmodern}
+
+% Margins and layout
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{parskip} % Replaces paragraph indentation with vertical spacing
+\usepackage{microtype}
+\usepackage{lastpage} % Required for 'Page x of y' numbering
+
+% Header and footer configuration
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Tampere Hacklab ry}}
+% The global header uses "Type --- Name" (e.g., Pöytäkirja --- Hallituksen kokous)
+\fancyhead[C]{$if(type)$$type$$else$Pöytäkirja$endif$ --- $if(name)$$name$$else$Kokous$endif$}
+\fancyhead[R]{$date$}
+% Footer now displays x/y format
+\fancyfoot[C]{Sivu \thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Packages required by Pandoc for formatting tables, images, and links
+\usepackage{longtable,booktabs,array}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    pdfborder={0 0 0}
+}
+
+% Pandoc requires this macro for its Markdown lists
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+
+% --- FIRST PAGE HEADER SECTION ---
+\noindent
+\textbf{Tampere Hacklab ry} \\
+Ahlmanintie 56, 33800 Tampere \\
+Y-tunnus: 2419748-5
+
+\vspace{1cm}
+
+\begin{center}
+    {\LARGE \textbf{$if(name)$$name$$else$Kokous$endif$}}
+\end{center}
+\vspace{1cm}
+
+% --- MEETING DETAILS ---
+\noindent
+\begin{tabular}{@{}p{3cm} p{12cm}}
+\textbf{Aika:} & $date$ klo $start_time$ \\
+\textbf{Paikka:} & $place$ \\
+\textbf{Läsnä:} & $for(attendees)$$attendees$$sep$, $endfor$ \\
+$if(absent)$
+\textbf{Poissa:} & $for(absent)$$absent$$sep$, $endfor$ \\
+$endif$
+\end{tabular}
+
+\vspace{1cm}
+
+$if(agenda)$
+\noindent\textbf{Asialista:}
+\begin{enumerate}
+$for(agenda)$
+  \item $agenda$
+$endfor$
+\end{enumerate}
+\vspace{1cm}
+$endif$
+
+\hrule
+\vspace{1cm}
+
+% --- MAIN CONTENT (Markdown text is injected here) ---
+$body$
+
+% --- END MATTER ---
+$if(end_time)$
+\vspace{1.5cm}
+\noindent \textbf{Kokouksen päättäminen:} \\
+$if(end_note)$$end_note$$endif$
+
+Kokous päätettiin klo $end_time$.
+$endif$
+
+% --- SIGNATURES ---
+$if(proofreaders)$
+\vspace{1.5cm}
+\noindent\textbf{Pöytäkirjan vakuudeksi:}
+
+\vspace{0.5cm}
+\noindent
+$for(proofreaders)$
+\begin{minipage}[t]{7cm}
+\vspace{1.5cm}
+\hrule
+\vspace{0.2cm}
+$proofreaders$\\
+Pöytäkirjantarkastaja
+\end{minipage}
+\hspace{1cm}
+$endfor$
+$endif$
+
+\end{document}
