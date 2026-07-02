@@ -20,6 +20,7 @@
 // Set global text properties (Finnish hyphenation, 11pt size)
 #set text(lang: "fi", size: 11pt)
 #set par(justify: true)
+#set heading(numbering: "1.")
 
 // --- FIRST PAGE HEADER SECTION ---
 *Tampere Hacklab ry* \
