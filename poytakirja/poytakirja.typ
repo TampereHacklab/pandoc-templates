@@ -27,7 +27,7 @@ Ahlmanintie 56, 33800 Tampere \
 Y-tunnus: 2419748-5
 
 #v(1cm)
-#align(center)[#text(size: 17pt)[*$if(type)$$type$$else$Pöytäkirja$endif$ --- $if(name)$$name$$else$Kokous$endif$*]]
+#align(center)[#text(size: 17pt)[*$if(name)$$name$$else$Kokous$endif$*]]
 #v(1cm)
 
 // --- MEETING DETAILS ---
