@@ -1,3 +1,5 @@
+#let horizontalrule = line(start: (25%,0%), end: (75%,0%))
+
 #set page(
   paper: "a4",
   margin: 2.5cm,
