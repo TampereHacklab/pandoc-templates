@@ -25,9 +25,41 @@
 #set heading(numbering: "1.")
 
 // --- FIRST PAGE HEADER SECTION ---
-*Tampere Hacklab ry* \
-Ahlmanintie 56, 33800 Tampere \
-Y-tunnus: 2419748-5
+#grid(
+  columns: (1fr, auto),
+  align: (left, horizon),
+  [
+    *Tampere Hacklab ry* \
+    Ahlmanintie 56, 33800 Tampere \
+    Y-tunnus: 2419748-5
+  ],
+  // Fancy logo drawn entirely in typst
+  [
+    #scale(x: 75%, y: 75%, origin: right + horizon, reflow: true)[
+      #box(width: 124pt, height: 124pt, stroke: 1.5pt + black)[
+        
+        #align(center + horizon)[
+          #box(width: 38pt, height: 62pt)[
+            #polygon(
+              fill: black,
+              (10pt, 0pt), (10pt, 16pt), (0pt, 16pt), (0pt, 20pt), (24pt, 20pt),
+              (24pt, 16pt), (14pt, 16pt), (14pt, 4pt), (34pt, 4pt), (34pt, 58pt),
+              (14pt, 58pt), (14pt, 26pt), (21pt, 26pt), (21pt, 22pt), (3pt, 22pt),
+              (3pt, 26pt), (10pt, 26pt), (10pt, 62pt), (38pt, 62pt), (38pt, 0pt)
+            )
+          ]
+        ]
+        
+        #set text(size: 5pt, font: "Dejavu Sans Mono", tracking: 0.2pt)
+        
+        #place(top + center, dy: 6pt)[Tampere Hacklab, Ahlmanintie 56,]
+        #place(right + horizon, dx: 38pt)[#rotate(90deg)[33800 Tampere FINLAND, phone ]]
+        #place(bottom + center, dy: -6pt)[#rotate(180deg)[+358 93157 6905, info\@tampere]]
+        #place(left + horizon, dx: -38pt - 5pt)[#rotate(270deg)[.hacklab.fi, tampere.hacklab.fi]]
+      ]
+    ]
+  ]
+)
 
 #v(0.5cm)
 #align(center)[#text(size: 17pt)[*$if(nimi)$$nimi$$else$Kokous$endif$*]]
