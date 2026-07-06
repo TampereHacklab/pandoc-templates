@@ -1,5 +1,9 @@
 #let horizontalrule = line(start: (25%,0%), end: (75%,0%))
 
+#set document(
+  title: [$if(tyyppi)$$tyyppi$$else$Pöytäkirja$endif$ --- $if(otsikko)$$otsikko$$else$Kokous$endif$]
+)
+
 #set page(
   paper: "a4",
   margin: 2.5cm,
@@ -64,7 +68,9 @@
 )
 
 #v(0.5cm)
-#align(center)[#text(size: 17pt)[*$if(nimi)$$nimi$$else$Kokous$endif$*]]
+#align(center)[
+    #text(hyphenate: false)[#title([$if(otsikko)$$otsikko$$else$Kokous$endif$])]
+]
 #v(0.5cm)
 
 // --- MEETING DETAILS ---

@@ -1,5 +1,5 @@
 ---
-nimi: "Hallituksen kokous"
+otsikko: "Hallituksen kokous"
 tyyppi: "Pöytäkirja"
 päivä: "2.7.2026"
 aloitus: "18:00"
