@@ -37,7 +37,8 @@
   [
     *Tampere Hacklab ry* \
     Ahlmanintie 56, 33800 Tampere \
-    Y-tunnus: 2419748-5
+    Y-tunnus: 2419748-5 \
+    info\@tampere.hacklab.fi
   ],
   // Fancy logo drawn entirely in typst
   [
