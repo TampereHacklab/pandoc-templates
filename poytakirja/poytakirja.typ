@@ -4,14 +4,16 @@
   paper: "a4",
   margin: 2.5cm,
   header: [
-    #grid(
-      columns: (1fr, auto, 1fr),
-      align(left)[*Tampere Hacklab ry*],
-      align(center)[$if(tyyppi)$$tyyppi$$else$Pöytäkirja$endif$ --- $if(nimi)$$nimi$$else$Kokous$endif$],
-      align(right)[$päivä$]
-    )
-    #v(-0.5em)
-    #line(length: 100%, stroke: 0.4pt)
+      #smallcaps[
+        #grid(
+          columns: (1fr, auto, 1fr),
+          align(left)[*Tampere Hacklab ry*],
+          align(center)[$if(tyyppi)$$tyyppi$$else$Pöytäkirja$endif$],
+          align(right)[$päivä$]
+        )
+        #v(-0.5em)
+        #line(length: 100%, stroke: 0.4pt)
+      ]
   ],
   footer: context [
     // Uses context to evaluate the total page count dynamically
@@ -81,7 +83,7 @@
 
 $if(asialista)$
 *Asialista:*
-#set enum(numbering: "1.")
+#set enum(numbering: "1.", indent: 1em)
 $for(asialista)$
 + $asialista$
 $endfor$
