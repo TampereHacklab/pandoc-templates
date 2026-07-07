@@ -26,7 +26,7 @@
 )
 
 // Set global text properties (Finnish hyphenation, 11pt size)
-#set text(lang: "fi", size: 11pt)
+#set text(lang: "$if(lang)$$lang$$else$fi$endif$", size: 11pt)
 #set par(justify: true)
 #set heading(numbering: "1.")
 

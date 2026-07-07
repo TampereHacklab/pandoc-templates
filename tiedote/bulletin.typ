@@ -27,7 +27,7 @@
 )
 
 // Set global text properties (English hyphenation, 11pt size)
-#set text(lang: "en", size: 11pt)
+#set text(lang: "$if(lang)$$lang$$else$en$endif$", size: 11pt)
 #set par(justify: true)
 
 // --- FIRST PAGE HEADER SECTION ---
